@@ -1,0 +1,4 @@
+interface:
+  display_name: "EtherCAT DC 实证诊断"
+  short_description: "依据实测区分 DC 收敛与 OP 等待，检查校时时基并保留版本回滚"
+  default_prompt: "使用 $ethercat-dc-validation 分析当前 EtherCAT DC 问题，区分已有证据与待验证措施，并遵守本次操作范围。"

@@ -1,0 +1,282 @@
+{
+  "evidence_kind": "Historical report fields plus original session reanalysis; no new hardware test",
+  "source_relative": "dc-startup-193-20260922-r13/evidence",
+  "runs": [
+    {
+      "label": "baseline-01",
+      "condition": "warm/application restart; ESC power state not controlled",
+      "period_ns": 1000000,
+      "duration_s": 2.5297122870006206,
+      "exit": 1,
+      "all_op_observed_s": null,
+      "ready_observed_s": null,
+      "post_ready_dc_max_ns": null,
+      "passed": false,
+      "kernel_errors": [],
+      "source_sha256": {
+        "session.jsonl": "2804bc00cd9dac625da2018991422d9e63caf8e22e5f8497fac23c54c248a690",
+        "result.json": "6be54c2338263b52887f09d2bf77d07b34315ccdda2ed789b1f1dc3f2ba320a2",
+        "kernel-new.log": "8040f0459a786f6c701c7c8e7b9e84726576bdb1a74d982cd83eed2e7cbbc5de"
+      }
+    },
+    {
+      "label": "burst-check-01",
+      "condition": "warm/application restart; ESC power state not controlled",
+      "period_ns": 1000000,
+      "duration_s": 60.70852081000157,
+      "exit": 2,
+      "all_op_observed_s": null,
+      "ready_observed_s": null,
+      "post_ready_dc_max_ns": null,
+      "passed": false,
+      "dc_passed": false,
+      "drive_faults": [
+        {
+          "t": 8.373851251000815,
+          "line": "CHECK_FAULT cycle=8356 sw=0x0208 err=0xa000 outputs=zero reset=forbidden"
+        }
+      ],
+      "kernel_errors": [
+        "[ 8356.509315] EtherCAT ERROR 1-0: Failed to set OP state, slave refused state change (SAFEOP + ERROR).",
+        "[ 8356.511349] EtherCAT ERROR 1-0: AL status message 0x001A: \"Synchronization error\"."
+      ],
+      "source_sha256": {
+        "session.jsonl": "8f2cd0f0cb81e3f0cab44a6682ef82e798e2e742596f093f659033f17e0ac09f",
+        "result.json": "b4ec9f951eb57b75bfffdfc9ef899818d9f737dd9165bdea996e6616ec6f0f94",
+        "kernel-new.log": "782aff419c92469bffd20084b3acd58578c9152d7fee7eddec68d4e48f2e8e44"
+      },
+      "historical_raw_timing_summary": {
+        "matching_session": true,
+        "motor_frames_available": 60296,
+        "sensor_frames_available": 8192,
+        "matching_cycle_timestamps": 8192,
+        "paired_frames": 8192,
+        "cycle_gaps": 0,
+        "period_ns": 1000000,
+        "mean_interval_ns": 1000003.7111700805,
+        "min_interval_ns": 977088,
+        "max_interval_ns": 1006255,
+        "startup_min_interval_ns": 977088,
+        "startup_max_interval_ns": 1005380,
+        "controlwords": [
+          0
+        ],
+        "motor_valid_frames": 0,
+        "sensor_valid_frames": 0,
+        "caveat": "Raw producer timestamps measure application samples, not hardware transmit timing or ADC update timing."
+      }
+    },
+    {
+      "label": "control-check-01",
+      "condition": "warm/application restart; ESC power state not controlled",
+      "period_ns": 1000000,
+      "duration_s": 40.794593426000574,
+      "exit": 2,
+      "all_op_observed_s": 5.535315490000357,
+      "ready_observed_s": 26.817351686999245,
+      "post_ready_dc_max_ns": 3583,
+      "passed": false,
+      "dc_passed": true,
+      "drive_faults": [
+        {
+          "t": 5.046857127999829,
+          "line": "CHECK_FAULT cycle=5030 sw=0x0208 err=0xa000 outputs=zero reset=forbidden"
+        }
+      ],
+      "kernel_errors": [],
+      "source_sha256": {
+        "session.jsonl": "791e6b0cf04de27cfef402548c3c74683ef4008a6e9aaf75393dbe6cc16ad5de",
+        "result.json": "b6fa27b2a9a0d2cb8c72e3bd42f05bfe60c2ba2160ad990d3ab8e259e838e27e",
+        "kernel-new.log": "b29ccc6eeaeb76958137e78304086a868eefbf042a77ebb952b3b33cd0227408"
+      }
+    },
+    {
+      "label": "control-check-02-after-powercycle",
+      "condition": "User confirmed sensor and motor power cycle immediately before this run; ESC cold state not instrumented.",
+      "period_ns": 1000000,
+      "duration_s": 60.715923497000404,
+      "exit": 0,
+      "all_op_observed_s": null,
+      "ready_observed_s": null,
+      "post_ready_dc_max_ns": null,
+      "passed": false,
+      "dc_passed": false,
+      "drive_faults": [],
+      "kernel_errors": [
+        "[ 8584.123751] EtherCAT ERROR 1-0: Failed to set OP state, slave refused state change (SAFEOP + ERROR).",
+        "[ 8584.125786] EtherCAT ERROR 1-0: AL status message 0x001A: \"Synchronization error\"."
+      ],
+      "source_sha256": {
+        "session.jsonl": "08ce85469beb5f81c772ec5ed079c54882ebbed2cfadf6ee73c471c52b89de20",
+        "result.json": "601774df1b2a0024f45b590a97ec11c1c6f242571f854026dad58945f83e1294",
+        "kernel-new.log": "f7a32a118a62ffc9d530780490a02c83afef140b5c45f56b0feecf107f4d1f91"
+      }
+    },
+    {
+      "label": "final-check-01",
+      "condition": "warm/application restart; ESC power state not controlled",
+      "period_ns": 1000000,
+      "duration_s": 40.80800601199917,
+      "exit": 0,
+      "all_op_observed_s": 2.6682731450000574,
+      "ready_observed_s": 9.21631881599933,
+      "post_ready_dc_max_ns": 4095,
+      "passed": true,
+      "dc_passed": true,
+      "drive_faults": [],
+      "kernel_errors": [],
+      "source_sha256": {
+        "session.jsonl": "ba3376a7547db9c4270d966d3f322920c65bc0b532709e4825b794aa2053765c",
+        "result.json": "d4729993d2e192ee8a34db000ab47766fa79f750ac34e663c712703f211025ee",
+        "kernel-new.log": "8c445e0609f94799bee43a579a55308bac3d4e669093b9fa9715e45c10183246"
+      },
+      "historical_raw_timing_summary": {
+        "matching_session": true,
+        "motor_frames_available": 40438,
+        "sensor_frames_available": 8192,
+        "matching_cycle_timestamps": 8192,
+        "paired_frames": 8192,
+        "cycle_gaps": 0,
+        "period_ns": 1000000,
+        "mean_interval_ns": 999959.562776665,
+        "min_interval_ns": 979086,
+        "max_interval_ns": 1006209,
+        "startup_min_interval_ns": 979086,
+        "startup_max_interval_ns": 1006209,
+        "controlwords": [
+          0
+        ],
+        "motor_valid_frames": 37890,
+        "sensor_valid_frames": 7892,
+        "caveat": "Raw producer timestamps measure application samples, not hardware transmit timing or ADC update timing."
+      }
+    },
+    {
+      "label": "final-cst-check-01",
+      "condition": "warm/application restart; ESC power state not controlled",
+      "period_ns": 1000000,
+      "duration_s": 40.79824697100048,
+      "exit": 0,
+      "all_op_observed_s": 1.0263104690002365,
+      "ready_observed_s": 6.016317599000104,
+      "post_ready_dc_max_ns": 343,
+      "passed": true,
+      "dc_passed": true,
+      "drive_faults": [],
+      "kernel_errors": [],
+      "source_sha256": {
+        "session.jsonl": "936def5e9754680c97aed468779773d759f0b533da326af573394bd1042f07e8",
+        "result.json": "10b0210bfee1c458b913ecf05b1a3a5a5bb0a584ccc660a8af34612a9cbf1ab3",
+        "kernel-new.log": "ee31535aee04b0ae5bde7b4a3f1e146aa5106cde0280569d37b528a5db3d5dc8"
+      },
+      "historical_raw_timing_summary": {
+        "matching_session": true,
+        "motor_frames_available": 40427,
+        "sensor_frames_available": 8192,
+        "matching_cycle_timestamps": 8192,
+        "paired_frames": 8192,
+        "cycle_gaps": 0,
+        "period_ns": 1000000,
+        "mean_interval_ns": 999963.8192252511,
+        "min_interval_ns": 976173,
+        "max_interval_ns": 1005630,
+        "startup_min_interval_ns": 976173,
+        "startup_max_interval_ns": 1005630,
+        "controlwords": [
+          0
+        ],
+        "motor_valid_frames": 39528,
+        "sensor_valid_frames": 7892,
+        "caveat": "Raw producer timestamps measure application samples, not hardware transmit timing or ADC update timing."
+      }
+    },
+    {
+      "label": "gate-check-01",
+      "condition": "warm/application restart; ESC power state not controlled",
+      "period_ns": 1000000,
+      "duration_s": 40.70242297100049,
+      "exit": 1,
+      "all_op_observed_s": null,
+      "ready_observed_s": null,
+      "post_ready_dc_max_ns": null,
+      "passed": false,
+      "dc_passed": false,
+      "drive_faults": [],
+      "kernel_errors": [
+        "[ 8933.735477] EtherCAT 1: DC initial offsets complete (2); cyclic sync released.",
+        "[ 8941.877699] EtherCAT ERROR 1-0: Failed to set OP state, slave refused state change (SAFEOP + ERROR).",
+        "[ 8941.879756] EtherCAT ERROR 1-0: AL status message 0x001A: \"Synchronization error\".",
+        "[ 8942.001329] EtherCAT ERROR 1-1: Reception of CoE upload response failed: No response.",
+        "[ 8942.001341] EtherCAT ERROR 1-1: Failed to process SDO request.",
+        "[ 8942.980958] EtherCAT ERROR 1-1: Timeout after 1001 ms while waiting for SDO 0x1a00:8 download response.",
+        "[ 8943.013490] EtherCAT ERROR 1-1: Failed to set SAFEOP state, slave refused state change (PREOP + ERROR).",
+        "[ 8943.015523] EtherCAT ERROR 1-1: AL status message 0x001E: \"Invalid input configuration\"."
+      ],
+      "source_sha256": {
+        "session.jsonl": "22f1ef93b59ec06fb47b44110c00d5cab62dd7ce630bc3c78064b165211eb8d7",
+        "result.json": "7c90babaa50921901a88002bde0a73c2855bbb51080599927731f587b4b072d3",
+        "kernel-new.log": "46405b5a81da09c1b344dce5d5fd49abd326bd6ba9a59b11f403f353983308da"
+      }
+    },
+    {
+      "label": "phase-burst-check-01",
+      "condition": "warm/application restart; ESC power state not controlled",
+      "period_ns": 1000000,
+      "duration_s": 180.97949351699936,
+      "exit": 0,
+      "all_op_observed_s": 2.4609504099989863,
+      "ready_observed_s": 6.016051266999057,
+      "post_ready_dc_max_ns": 1170,
+      "passed": true,
+      "dc_passed": true,
+      "drive_faults": [],
+      "kernel_errors": [
+        "[ 9581.976077] EtherCAT ERROR 1-0: Failed to receive AL state datagram: Datagram initialized."
+      ],
+      "source_sha256": {
+        "session.jsonl": "a4a8810ece946355c8dd41d5b8af9dbef4e6afac95ce5f050630b5ef4f8e1edc",
+        "result.json": "d99a7ed6cd1692c1ca389b71807de212a193a75318fe938e92e2ecdbaed41905",
+        "kernel-new.log": "e6ca8a3ca41387a552de9888524ebdda9975f5896ace23b7ff89c0c5f97c8fa6"
+      },
+      "historical_raw_timing_summary": {
+        "matching_session": true,
+        "motor_frames_available": 65536,
+        "sensor_frames_available": 8192,
+        "matching_cycle_timestamps": 8192,
+        "paired_frames": 8192,
+        "cycle_gaps": 0,
+        "period_ns": 1000000,
+        "mean_interval_ns": 999947.8259403373,
+        "min_interval_ns": 992783,
+        "max_interval_ns": 1008240,
+        "startup_min_interval_ns": null,
+        "startup_max_interval_ns": null,
+        "controlwords": [
+          0
+        ],
+        "motor_valid_frames": 65536,
+        "sensor_valid_frames": 7892,
+        "caveat": "Raw producer timestamps measure application samples, not hardware transmit timing or ADC update timing."
+      }
+    },
+    {
+      "label": "phase-check-01",
+      "condition": "warm/application restart; ESC power state not controlled",
+      "period_ns": 1000000,
+      "duration_s": 40.81578044700109,
+      "exit": 0,
+      "all_op_observed_s": 6.151510774001508,
+      "ready_observed_s": 9.916011856001205,
+      "post_ready_dc_max_ns": 3950,
+      "passed": true,
+      "dc_passed": true,
+      "drive_faults": [],
+      "kernel_errors": [],
+      "source_sha256": {
+        "session.jsonl": "5b9f2a1b09fbe936c8746f72597e6f600f06b712b385b43e79cd63f9aa727ddd",
+        "result.json": "058038cb29406a384dc354808402dcffc09212a980c896d06b6621c3cce10e6e",
+        "kernel-new.log": "adab237ffc6fcadaad0f08866616ab1925e2575471efbd28bf1d17c95475aca4"
+      }
+    }
+  ]
+}
